@@ -1,0 +1,8 @@
+*
+!/.gitignore.d
+!/.gitignore.d/local
+!/.README.d
+!/.README.d/local.md
+!/.local
+!/.local/bin
+!/.local/bin/tmux-sessionizer
