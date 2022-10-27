@@ -11,8 +11,7 @@ if ! tmux has-session -t $selected_workspace 2> /dev/null; then
     tmux new-session -ds $selected_workspace -c $(hg hgd "$selected_workspace")
 fi
 
-# Set the name of the window/tab.
-echo -ne \"\033]0;$selected_workspace\007\"
+echo -ne "\033]0;$selected_workspace\007"
 
 if [ -z $TMUX ]; then
     # If we're not running in a tmux client, attach to the session.
