@@ -5,4 +5,4 @@
 !/.README.d/local.md
 !/.local
 !/.local/bin
-!/.local/bin/tmux-sessionizer
+!/.local/bin/open-tmux-workspace

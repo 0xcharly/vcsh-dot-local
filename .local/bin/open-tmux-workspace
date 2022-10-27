@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+
+selected_workspace=$(hg citc --list |fzf)
+
+if [ -z $selected_workspace ]; then
+    exit 0
+fi
+
+if ! tmux has-session -t $selected_workspace 2> /dev/null; then
+    # Create a detached session that we'll join below.
+    tmux new-session -ds $selected_workspace -c $(hg hgd "$selected_workspace")
+fi
+
+# Set the name of the window/tab.
+echo -ne \"\033]0;$selected_workspace\007\"
+
+if [ -z $TMUX ]; then
+    # If we're not running in a tmux client, attach to the session.
+    tmux attach-session -t $selected_workspace
+else
+    # If we're already running in a tmux client, just switch the client.
+    tmux switch-client -t $selected_workspace
+fi
