@@ -6,3 +6,4 @@
 !/.local
 !/.local/bin
 !/.local/bin/open-tmux-workspace
+!/.local/bin/git-init-qmk-worktrees
